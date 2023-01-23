@@ -16,12 +16,6 @@ import org.springframework.scheduling.annotation.Scheduled;
 public class RestScheduler {
 
     private final Logger logger = LoggerFactory.getLogger(RestScheduler.class);
-    
-//    @Autowired
-//    private JobBuilderFactory jobBuilderFactory;
-//
-//    @Autowired
-//    private StepBuilderFactory stepBuilderFactory;
 
     @Autowired
     private JobLauncher jobLauncher;
@@ -32,9 +26,6 @@ public class RestScheduler {
     @Autowired
     @Qualifier("exampleJobBean")
     private Job exampleJobStep;
-    
-//    @Autowired
-//    private RestTemplate restTemplate;
     
     
     @Scheduled(cron = "*/9 * * * * ?")
@@ -57,38 +48,5 @@ public class RestScheduler {
         logger.info("[simpleScheduler] end {}", new Date());
         logger.info("*******************************************************");
     }
-    
-    
-//    @Bean
-//    public ItemReader<CreditCard> itemReader() {
-//        return new RestItemReader(restTemplate);
-//    }
-//
-//    @Bean
-//    public ItemWriter<CreditCard> itemWriter() {
-//        return new RestItemWriter();
-//    }
-//    
-//    @Bean
-//    public ItemProcessor<CreditCard, CreditCard> itemProcessor() {
-//        return new RestItemProcessor();
-//    }
-//
-//    @Bean
-//    public Step exampleJobStep() {
-//        return stepBuilderFactory.get("exampleJobStep")
-//                .<CreditCard, CreditCard>chunk(1)
-//                .reader(itemReader())
-//                .processor(itemProcessor())
-//                .writer(itemWriter())
-//                .build();
-//    }
-//
-//    @Bean
-//    public Job exampleJob() {
-//        return jobBuilderFactory
-//                .get("exampleJob")
-//                .start(exampleJobStep())
-//                .build();
-//    }
+
 }
